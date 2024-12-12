@@ -695,7 +695,9 @@ CO_CANinterrupt_TX(CO_CANmodule_t* CANmodule, uint32_t MailboxNumber) {
                     buffer->bufferFull = false;
                     CANmodule->CANtxCount--;
                     CANmodule->bufferInhibitFlag = buffer->syncFlag;
-                }
+                } else {
+		    break;
+		}
             }
         }
         /* Clear counter if no more messages */
