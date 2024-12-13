@@ -633,7 +633,9 @@ HAL_FDCAN_TxBufferCompleteCallback(FDCAN_HandleTypeDef* hfdcan, uint32_t BufferI
                     buffer->bufferFull = false;
                     CANModule_local->CANtxCount--;
                     CANModule_local->bufferInhibitFlag = buffer->syncFlag;
-                }
+                } else {
+		    break;
+		}
             }
         }
         /* Clear counter if no more messages */
